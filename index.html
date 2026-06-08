@@ -1,1054 +1,675 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurora Energy Services — Excellence in Marine Services</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>ARQ Development Corp — Energy & Industrial Projects</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: {
-        display: ['Cormorant Garamond', 'serif'],
-        body: ['Outfit', 'sans-serif'],
-      },
-      colors: {
-        navy: { 950: '#03080f', 900: '#060f1e', 800: '#0a1628', 700: '#0d1f38', 600: '#122748' },
-        ocean: { 500: '#0e3d6e', 400: '#155fa0', 300: '#1a7fd4' },
-        teal: { 600: '#006d8a', 500: '#007a99', 400: '#00a3c4', 300: '#00c8f0', 200: '#7de8f8', 100: '#d0f7fd' },
-        gold: { 500: '#c9973a', 400: '#e2b455', 300: '#f5d080', 200: '#faebbf' },
-      },
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'float-slow': 'float 9s ease-in-out infinite reverse',
-        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-        'shimmer': 'shimmer 2.5s linear infinite',
-        'scan': 'scan 4s linear infinite',
-        'drift': 'drift 20s linear infinite',
-        'reveal-up': 'revealUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards',
-        'reveal-left': 'revealLeft 0.8s cubic-bezier(0.16,1,0.3,1) forwards',
-        'counter': 'counter 2s ease-out forwards',
-      },
-      keyframes: {
-        float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-18px)' } },
-        pulseGlow: { '0%,100%': { opacity: '0.4', transform: 'scale(1)' }, '50%': { opacity: '0.8', transform: 'scale(1.05)' } },
-        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
-        scan: { '0%': { transform: 'translateY(-100%)' }, '100%': { transform: 'translateY(400%)' } },
-        drift: { '0%': { transform: 'translateX(0) translateY(0) rotate(0deg)' }, '33%': { transform: 'translateX(30px) translateY(-20px) rotate(120deg)' }, '66%': { transform: 'translateX(-20px) translateY(10px) rotate(240deg)' }, '100%': { transform: 'translateX(0) translateY(0) rotate(360deg)' } },
-        revealUp: { '0%': { opacity: '0', transform: 'translateY(40px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-        revealLeft: { '0%': { opacity: '0', transform: 'translateX(-40px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
-      },
-      backdropBlur: { xs: '2px' },
-    }
-  }
-}
-</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Outfit',sans-serif; background:#03080f; color:#e8eef5; overflow-x:hidden; }
-  h1,h2,h3,.font-display { font-family:'Cormorant Garamond',serif; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* Glass */
-  .glass { background:rgba(255,255,255,0.04); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.08); }
-  .glass-strong { background:rgba(255,255,255,0.07); backdrop-filter:blur(32px); -webkit-backdrop-filter:blur(32px); border:1px solid rgba(255,255,255,0.12); }
-  .glass-dark { background:rgba(3,8,15,0.6); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid rgba(255,255,255,0.06); }
-  .glass-teal { background:rgba(0,200,240,0.06); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(0,200,240,0.15); }
+  :root {
+    --navy: #0b1622;
+    --navy-mid: #152032;
+    --navy-light: #1e3048;
+    --steel: #4B6E8E;
+    --steel-light: #6d93b5;
+    --steel-pale: #c8dcea;
+    --cream: #f5f0e8;
+    --cream-dark: #ede7d9;
+    --text-dark: #0b1622;
+    --text-muted: #6a7a8a;
+    --white: #ffffff;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+    --border: 1px solid rgba(75,110,142,0.18);
+  }
 
-  /* Gradient text */
-  .grad-text { background:linear-gradient(135deg,#7de8f8 0%,#00c8f0 40%,#e2b455 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  .grad-text-gold { background:linear-gradient(135deg,#f5d080 0%,#e2b455 50%,#c9973a 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
 
-  /* Shimmer */
-  .shimmer-line { background:linear-gradient(90deg,transparent 0%,rgba(0,200,240,0.4) 50%,transparent 100%); background-size:200% 100%; animation:shimmer 2.5s linear infinite; }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(11,22,34,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav-logo {
+    font-family: var(--serif); font-size: 18px; color: var(--white);
+    letter-spacing: 0.01em;
+  }
+  .nav-logo span { color: var(--steel-light); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.55); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-btn {
+    font-family: var(--sans); font-size: 12px; font-weight: 500;
+    padding: 8px 20px; border-radius: 2px;
+    background: var(--steel); color: var(--white);
+    border: none; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .nav-btn:hover { background: var(--steel-light); }
 
-  /* Glow */
-  .glow-teal { box-shadow:0 0 40px rgba(0,200,240,0.2),0 0 80px rgba(0,200,240,0.08); }
-  .glow-gold { box-shadow:0 0 40px rgba(226,180,85,0.2); }
-  .text-glow { text-shadow:0 0 40px rgba(0,200,240,0.5); }
+  /* HERO */
+  .hero {
+    min-height: 100vh; background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 120px 48px 80px;
+    gap: 80px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -100px;
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(75,110,142,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -100px; left: 30%;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(75,110,142,0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--steel-light);
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--steel);
+  }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(38px, 4vw, 58px);
+    line-height: 1.1; color: var(--white); margin-bottom: 24px;
+    font-weight: 400;
+  }
+  .hero h1 em { color: var(--steel-light); font-style: italic; }
+  .hero-desc {
+    font-size: 15px; line-height: 1.75; color: rgba(255,255,255,0.45);
+    max-width: 440px; margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 14px; align-items: center; }
+  .btn-white {
+    font-family: var(--sans); font-size: 13px; font-weight: 500;
+    padding: 12px 28px; border-radius: 2px;
+    background: var(--white); color: var(--navy);
+    border: none; cursor: pointer; text-decoration: none;
+    letter-spacing: 0.04em; transition: background 0.2s;
+    display: inline-block;
+  }
+  .btn-white:hover { background: var(--cream); }
+  .btn-ghost {
+    font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none;
+    display: flex; align-items: center; gap: 6px; letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--white); }
+  .btn-ghost svg { width: 14px; height: 14px; }
 
-  /* Scrollbar */
-  ::-webkit-scrollbar { width:4px; }
-  ::-webkit-scrollbar-track { background:transparent; }
-  ::-webkit-scrollbar-thumb { background:rgba(0,200,240,0.3); border-radius:2px; }
+  .hero-right { display: flex; flex-direction: column; gap: 14px; position: relative; z-index: 1; }
+  .hero-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; padding: 24px 28px;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    transition: border-color 0.3s, background 0.3s;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-card:hover { border-color: rgba(75,110,142,0.4); background: rgba(75,110,142,0.08); }
+  .hero-card:nth-child(1) { animation-delay: 0.1s; }
+  .hero-card:nth-child(2) { animation-delay: 0.2s; }
+  .hero-card:nth-child(3) { animation-delay: 0.3s; }
+  .hero-card:nth-child(2) { margin-left: 24px; }
+  .hero-card-num { font-family: var(--serif); font-size: 11px; color: var(--steel-light); margin-bottom: 10px; letter-spacing: 0.08em; }
+  .hero-card h3 { font-family: var(--serif); font-size: 17px; color: var(--white); font-weight: 400; margin-bottom: 6px; }
+  .hero-card p { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.6; }
 
-  /* Reveal on scroll */
-  .reveal { opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
-  .reveal.visible { opacity:1; transform:translateY(0); }
-  .reveal-left { opacity:0; transform:translateX(-40px); transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
-  .reveal-left.visible { opacity:1; transform:translateX(0); }
-  .reveal-right { opacity:0; transform:translateX(40px); transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
-  .reveal-right.visible { opacity:1; transform:translateX(0); }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-  /* Service card hover */
-  .service-card { transition:all 0.4s cubic-bezier(0.16,1,0.3,1); }
-  .service-card:hover { transform:translateY(-6px); background:rgba(0,200,240,0.07); border-color:rgba(0,200,240,0.25); box-shadow:0 24px 60px rgba(0,200,240,0.12); }
-  .service-card:hover .card-icon { background:rgba(0,200,240,0.15); box-shadow:0 0 30px rgba(0,200,240,0.2); }
+  /* TICKER */
+  .ticker {
+    background: var(--steel); padding: 12px 0; overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .ticker-inner {
+    display: flex; gap: 64px; white-space: nowrap;
+    animation: ticker 22s linear infinite;
+  }
+  .ticker-item {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.8);
+    display: flex; align-items: center; gap: 18px; flex-shrink: 0;
+  }
+  .ticker-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 
-  /* Nav */
-  #navbar { transition:all 0.4s; }
-  #navbar.scrolled { background:rgba(3,8,15,0.85); backdrop-filter:blur(28px); border-bottom:1px solid rgba(255,255,255,0.08); }
+  /* ABOUT */
+  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--cream); }
+  .about-left {
+    padding: 96px 64px 96px 80px;
+    border-right: var(--border);
+  }
+  .about-right { padding: 96px 80px 96px 64px; }
 
-  /* Orb */
-  .orb { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--steel);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--steel); display: block; }
 
-  /* Number counter */
-  .counter-num { font-variant-numeric:tabular-nums; }
+  .about h2 {
+    font-family: var(--serif); font-size: clamp(32px, 3vw, 46px);
+    font-weight: 400; line-height: 1.15; margin-bottom: 28px;
+    color: var(--text-dark);
+  }
+  .about p { font-size: 15px; line-height: 1.8; color: var(--text-muted); margin-bottom: 18px; }
 
-  /* Input focus */
-  input:focus, textarea:focus, select:focus { outline:none; box-shadow:0 0 0 1px rgba(0,200,240,0.4),0 0 20px rgba(0,200,240,0.1); }
+  .mission-block {
+    border-top: var(--border); padding-top: 32px; margin-top: 32px;
+  }
+  .mission-block h4 {
+    font-family: var(--serif); font-size: 20px; font-weight: 400;
+    margin-bottom: 12px; color: var(--text-dark);
+  }
+  .mission-block p { font-size: 14px; line-height: 1.75; color: var(--text-muted); }
 
-  /* Noise overlay */
-  .noise::after { content:''; position:absolute; inset:0; opacity:0.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:200px 200px; pointer-events:none; z-index:1; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(75,110,142,0.12); margin-bottom: 40px; border: var(--border); }
+  .about-stat { background: var(--cream); padding: 28px 24px; }
+  .about-stat-num { font-family: var(--serif); font-size: 38px; color: var(--steel); line-height: 1; margin-bottom: 6px; }
+  .about-stat-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.02em; line-height: 1.4; }
 
-  /* Grid lines */
-  .grid-bg { background-image:linear-gradient(rgba(0,200,240,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,240,0.04) 1px,transparent 1px); background-size:64px 64px; }
+  .about-img-block {
+    background: var(--navy-mid); border-radius: 4px; overflow: hidden;
+    aspect-ratio: 4/3; position: relative;
+    display: flex; align-items: flex-end; padding: 24px;
+  }
+  .about-img-block::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(11,22,34,0.85) 0%, transparent 50%);
+  }
+  .about-img-label {
+    position: relative; z-index: 1;
+    font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 0.04em;
+  }
+  .about-img-label strong { display: block; font-family: var(--serif); font-size: 18px; color: var(--white); font-weight: 400; margin-bottom: 4px; }
 
-  /* Separator */
-  .sep { height:1px; background:linear-gradient(90deg,transparent,rgba(0,200,240,0.3),transparent); }
+  /* Industrial SVG illustration inside image block */
+  .industrial-svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.35; }
 
-  /* Pill */
-  .pill { background:rgba(0,200,240,0.1); border:1px solid rgba(0,200,240,0.2); color:#7de8f8; font-family:'Outfit',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; padding:5px 14px; border-radius:999px; display:inline-block; }
+  /* SERVICES */
+  .services { background: var(--navy); padding: 96px 80px; }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 32px; }
+  .services-header h2 { font-family: var(--serif); font-size: clamp(30px, 3vw, 44px); color: var(--white); font-weight: 400; max-width: 380px; line-height: 1.2; }
+  .services-header p { font-size: 14px; color: rgba(255,255,255,0.4); max-width: 300px; line-height: 1.7; text-align: right; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.07); }
+  .svc-item {
+    background: var(--navy); padding: 40px 36px;
+    transition: background 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .svc-item::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--steel); transform: scaleX(0);
+    transition: transform 0.3s; transform-origin: left;
+  }
+  .svc-item:hover { background: var(--navy-light); }
+  .svc-item:hover::after { transform: scaleX(1); }
+  .svc-num { font-size: 11px; color: rgba(75,110,142,0.6); letter-spacing: 0.1em; margin-bottom: 24px; }
+  .svc-icon-wrap { margin-bottom: 20px; }
+  .svc-icon-wrap svg { width: 32px; height: 32px; stroke: var(--steel-light); fill: none; stroke-width: 1.5; }
+  .svc-item h3 { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--white); margin-bottom: 12px; line-height: 1.25; }
+  .svc-item p { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.7; }
 
-  /* Why card */
-  .why-card { transition:all 0.35s cubic-bezier(0.16,1,0.3,1); }
-  .why-card:hover { transform:translateY(-4px); border-color:rgba(0,200,240,0.2); background:rgba(0,200,240,0.05); }
+  /* PROJECTS */
+  .projects { background: var(--cream-dark); padding: 96px 80px; }
+  .projects-header { margin-bottom: 48px; }
+  .projects-header h2 { font-family: var(--serif); font-size: clamp(30px, 3vw, 44px); color: var(--text-dark); font-weight: 400; margin-top: 16px; }
+  .projects-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+  .project-main {
+    background: var(--navy); border-radius: 4px; padding: 48px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    min-height: 360px; position: relative; overflow: hidden;
+  }
+  .project-main::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(75,110,142,0.3) 0%, rgba(11,22,34,0.9) 100%);
+  }
+  .project-main-content { position: relative; z-index: 1; }
+  .project-tag {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 12px; border: 1px solid rgba(75,110,142,0.5);
+    color: var(--steel-pale); border-radius: 2px; margin-bottom: 16px;
+  }
+  .project-main h3 { font-family: var(--serif); font-size: 28px; color: var(--white); font-weight: 400; margin-bottom: 12px; line-height: 1.2; }
+  .project-main p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.65; max-width: 400px; }
+  .projects-side { display: flex; flex-direction: column; gap: 16px; }
+  .project-card {
+    background: var(--white); border: var(--border); border-radius: 4px;
+    padding: 28px 28px 24px; flex: 1;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover { border-color: rgba(75,110,142,0.45); box-shadow: 0 4px 24px rgba(75,110,142,0.1); }
+  .project-card-tag {
+    font-size: 10px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--steel); margin-bottom: 12px;
+  }
+  .project-card h4 { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--text-dark); margin-bottom: 8px; }
+  .project-card p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
 
-  /* Client pill hover */
-  .client-pill { transition:all 0.3s; }
-  .client-pill:hover { background:rgba(0,200,240,0.1); border-color:rgba(0,200,240,0.3); color:#7de8f8; transform:scale(1.02); }
+  /* CTA */
+  .cta { background: var(--steel); padding: 80px; display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+  .cta h2 { font-family: var(--serif); font-size: clamp(28px, 2.8vw, 40px); color: var(--white); font-weight: 400; max-width: 480px; line-height: 1.2; }
+  .cta-actions { display: flex; gap: 14px; flex-shrink: 0; }
+  .btn-navy {
+    font-family: var(--sans); font-size: 13px; font-weight: 500;
+    padding: 12px 28px; border-radius: 2px;
+    background: var(--navy); color: var(--white);
+    border: none; cursor: pointer; letter-spacing: 0.04em;
+    text-decoration: none; display: inline-block; transition: background 0.2s;
+  }
+  .btn-navy:hover { background: var(--navy-mid); }
+  .btn-light-ghost {
+    font-size: 13px; font-weight: 400;
+    padding: 12px 28px; border-radius: 2px;
+    background: transparent; color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.3); cursor: pointer;
+    letter-spacing: 0.04em; text-decoration: none; display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-light-ghost:hover { border-color: var(--white); color: var(--white); }
 
-  /* Hamburger */
-  #nav-menu { transition:all 0.4s; }
+  /* CONTACT */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; background: var(--navy); }
+  .contact-info-col { padding: 96px 64px 96px 80px; border-right: 1px solid rgba(255,255,255,0.07); }
+  .contact-info-col h2 { font-family: var(--serif); font-size: clamp(28px, 3vw, 42px); color: var(--white); font-weight: 400; margin: 16px 0 24px; line-height: 1.15; }
+  .contact-info-col > p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.75; margin-bottom: 48px; }
+  .contact-detail { display: flex; flex-direction: column; gap: 20px; }
+  .contact-row { display: flex; gap: 16px; align-items: flex-start; }
+  .contact-icon { width: 36px; height: 36px; border: 1px solid rgba(75,110,142,0.35); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-icon svg { width: 16px; height: 16px; stroke: var(--steel-light); fill: none; stroke-width: 1.5; }
+  .contact-row-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 3px; }
+  .contact-row-val { font-size: 14px; color: rgba(255,255,255,0.75); }
 
-  /* Scan line */
-  .scan-container { position:relative; overflow:hidden; }
-  .scan-line { position:absolute; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,rgba(0,200,240,0.6),transparent); animation:scan 4s linear infinite; }
+  .contact-form-col { padding: 96px 80px 96px 64px; }
+  .contact-form-col h3 { font-family: var(--serif); font-size: 22px; color: var(--white); font-weight: 400; margin-bottom: 32px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 8px; }
+  .form-group input, .form-group textarea {
+    width: 100%; font-family: var(--sans); font-size: 14px;
+    padding: 12px 16px; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 2px;
+    color: var(--white); outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+  .form-group input:focus, .form-group textarea:focus { border-color: rgba(75,110,142,0.6); background: rgba(75,110,142,0.08); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .submit-btn {
+    font-family: var(--sans); font-size: 13px; font-weight: 500;
+    padding: 13px 32px; background: var(--steel); color: var(--white);
+    border: none; border-radius: 2px; cursor: pointer; letter-spacing: 0.05em;
+    text-transform: uppercase; margin-top: 8px; transition: background 0.2s;
+  }
+  .submit-btn:hover { background: var(--steel-light); }
 
-  @media(max-width:768px) {
-    h1 { font-size:clamp(44px,12vw,80px) !important; }
-    .hero-stats { display:none; }
+  /* FOOTER */
+  footer {
+    background: var(--navy); border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 24px 80px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-logo { font-family: var(--serif); font-size: 15px; color: rgba(255,255,255,0.6); }
+  .footer-links { display: flex; gap: 32px; }
+  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.22); }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 48px; }
+    .about { grid-template-columns: 1fr; }
+    .about-left, .about-right { padding: 60px 32px; border-right: none; }
+    .about-left { border-bottom: var(--border); }
+    .services { padding: 60px 32px; }
+    .services-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .services-header p { text-align: left; }
+    .services-grid { grid-template-columns: 1fr; }
+    .projects { padding: 60px 32px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .cta { padding: 60px 32px; flex-direction: column; align-items: flex-start; }
+    .contact { grid-template-columns: 1fr; }
+    .contact-info-col, .contact-form-col { padding: 60px 32px; border-right: none; }
+    .contact-info-col { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .form-row { grid-template-columns: 1fr; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 16px; text-align: center; }
   }
 </style>
 </head>
-<body class="noise">
+<body>
 
-<!-- BACKGROUND LAYER -->
-<div class="fixed inset-0 pointer-events-none z-0">
-  <!-- Deep bg -->
-  <div class="absolute inset-0" style="background:radial-gradient(ellipse at 20% 50%,rgba(14,61,110,0.35) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(0,200,240,0.12) 0%,transparent 50%),radial-gradient(ellipse at 60% 80%,rgba(201,151,58,0.08) 0%,transparent 40%),#03080f;"></div>
-  <!-- Grid -->
-  <div class="absolute inset-0 grid-bg opacity-60"></div>
-  <!-- Orbs -->
-  <div class="orb w-96 h-96 animate-float" style="background:rgba(0,200,240,0.12);top:10%;left:5%;animation-delay:0s;"></div>
-  <div class="orb w-80 h-80 animate-float-slow" style="background:rgba(14,61,110,0.4);top:40%;right:8%;animation-delay:-3s;"></div>
-  <div class="orb w-64 h-64 animate-float" style="background:rgba(226,180,85,0.08);bottom:20%;left:30%;animation-delay:-5s;"></div>
-  <!-- Particles -->
-  <canvas id="particles" class="absolute inset-0 opacity-40"></canvas>
-</div>
-
-<!-- NAVBAR -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 py-0" style="height:72px;">
-  <div class="max-w-7xl mx-auto h-full flex items-center justify-between">
-    <!-- Logo -->
-    <a href="#home" class="flex items-center gap-3 group">
-      <div class="relative w-10 h-10 flex-shrink-0">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-          <defs>
-            <linearGradient id="lg1" x1="0" y1="40" x2="40" y2="0" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#007a99"/>
-              <stop offset="100%" stop-color="#00c8f0"/>
-            </linearGradient>
-          </defs>
-          <path d="M20 4 L36 32 L4 32 Z" fill="none" stroke="url(#lg1)" stroke-width="1.5"/>
-          <path d="M20 12 L30 32 L10 32 Z" fill="url(#lg1)" opacity="0.3"/>
-          <path d="M20 18 L26 32 L14 32 Z" fill="url(#lg1)" opacity="0.6"/>
-          <circle cx="20" cy="7" r="2.5" fill="#e2b455"/>
-          <circle cx="20" cy="7" r="4" fill="#e2b455" opacity="0.2" class="animate-pulse-glow"/>
-        </svg>
-      </div>
-      <div>
-        <div class="font-display font-600 text-white tracking-wide leading-none" style="font-size:17px;letter-spacing:0.05em;">AURORA ENERGY</div>
-        <div class="font-body text-teal-300 leading-none mt-0.5" style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;font-weight:300;">Offshore &amp; Marine Services</div>
-      </div>
-    </a>
-
-    <!-- Desktop links -->
-    <ul class="hidden md:flex items-center gap-8 list-none">
-      <li><a href="#about" class="font-body text-white/60 hover:text-teal-300 transition-colors text-xs tracking-widest uppercase">About</a></li>
-      <li><a href="#services" class="font-body text-white/60 hover:text-teal-300 transition-colors text-xs tracking-widest uppercase">Services</a></li>
-      <li><a href="#why" class="font-body text-white/60 hover:text-teal-300 transition-colors text-xs tracking-widest uppercase">Why Aurora</a></li>
-      <li><a href="#clients" class="font-body text-white/60 hover:text-teal-300 transition-colors text-xs tracking-widest uppercase">Clients</a></li>
-      <li>
-        <a href="#contact" class="glass-teal font-body text-teal-300 text-xs tracking-widest uppercase px-5 py-2.5 rounded-full transition-all hover:bg-teal-400/20 hover:shadow-lg" style="font-weight:500;letter-spacing:0.12em;">
-          Get In Touch
-        </a>
-      </li>
-    </ul>
-
-    <!-- Mobile burger -->
-    <button id="burger" class="md:hidden flex flex-col gap-1.5 p-2">
-      <span class="w-6 h-px bg-white/70 block transition-all" id="b1"></span>
-      <span class="w-6 h-px bg-white/70 block transition-all" id="b2"></span>
-      <span class="w-4 h-px bg-white/70 block transition-all" id="b3"></span>
-    </button>
-  </div>
-
-  <!-- Mobile menu -->
-  <div id="nav-menu" class="md:hidden glass-dark max-h-0 overflow-hidden transition-all duration-500 border-t border-white/5 mx-0">
-    <div class="flex flex-col gap-0 py-4 px-6">
-      <a href="#about" class="nav-m-link py-3 text-white/70 hover:text-teal-300 text-sm tracking-widest uppercase border-b border-white/5 transition-colors">About</a>
-      <a href="#services" class="nav-m-link py-3 text-white/70 hover:text-teal-300 text-sm tracking-widest uppercase border-b border-white/5 transition-colors">Services</a>
-      <a href="#why" class="nav-m-link py-3 text-white/70 hover:text-teal-300 text-sm tracking-widest uppercase border-b border-white/5 transition-colors">Why Aurora</a>
-      <a href="#clients" class="nav-m-link py-3 text-white/70 hover:text-teal-300 text-sm tracking-widest uppercase border-b border-white/5 transition-colors">Clients</a>
-      <a href="#contact" class="nav-m-link py-3 text-teal-300 text-sm tracking-widest uppercase transition-colors">Get In Touch</a>
-    </div>
-  </div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ARQ <span>Development</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Investors</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="relative min-h-screen flex flex-col justify-center overflow-hidden pt-18">
-
-  <!-- Animated ocean lines -->
-  <div class="absolute bottom-0 left-0 right-0 pointer-events-none" style="height:200px;overflow:hidden;">
-    <svg viewBox="0 0 1440 200" preserveAspectRatio="none" class="w-full h-full">
-      <path d="M0 100 C200 60 400 140 600 100 C800 60 1000 130 1200 90 L1440 80 L1440 200 L0 200 Z" fill="rgba(0,200,240,0.04)"/>
-      <path d="M0 120 C240 80 480 150 720 110 C960 70 1200 140 1440 100 L1440 200 L0 200 Z" fill="rgba(0,200,240,0.03)"/>
-      <path d="M0 150 C300 120 600 160 900 130 C1100 110 1300 150 1440 130 L1440 200 L0 200 Z" fill="rgba(14,61,110,0.15)"/>
-    </svg>
-  </div>
-
-  <!-- Scan line -->
-  <div class="scan-container absolute inset-0 pointer-events-none opacity-20">
-    <div class="scan-line"></div>
-  </div>
-
-  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-24 flex flex-col md:flex-row md:items-center gap-16">
-
-    <div class="flex-1">
-      <!-- Eyebrow -->
-      <div class="flex items-center gap-4 mb-8 reveal">
-        <div class="w-8 h-px" style="background:linear-gradient(90deg,#00c8f0,transparent);"></div>
-        <span class="pill">Gulf of Guinea Basin — West Africa</span>
-        <div class="w-8 h-px" style="background:linear-gradient(90deg,transparent,#00c8f0);"></div>
-      </div>
-
-      <!-- Headline -->
-      <h1 class="font-display font-700 leading-none mb-6 reveal" style="font-size:clamp(56px,7.5vw,110px);letter-spacing:-0.01em;animation-delay:0.1s;">
-        <span class="text-white">Excellence</span><br>
-        <span class="font-300 italic" style="color:rgba(255,255,255,0.5);">in</span>
-        <span class="grad-text"> Marine</span><br>
-        <span class="text-white">Services</span>
-      </h1>
-
-      <div class="shimmer-line h-px mb-8 reveal" style="animation-delay:0.2s;max-width:400px;"></div>
-
-      <p class="font-body text-white/55 leading-relaxed mb-10 reveal" style="font-size:16px;max-width:520px;font-weight:300;animation-delay:0.3s;">
-        Your partner in seismic surveys, asset integrity maintenance, and subsea solutions — delivering precision engineering for Africa's offshore energy sector from Houston, Texas.
-      </p>
-
-      <!-- CTA -->
-      <div class="flex flex-wrap gap-4 reveal" style="animation-delay:0.4s;">
-        <a href="#services" class="group relative glass-teal text-teal-300 font-body font-500 text-sm tracking-widest uppercase px-8 py-4 rounded-full overflow-hidden transition-all hover:glow-teal hover:text-white" style="letter-spacing:0.1em;">
-          <span class="relative z-10 flex items-center gap-2">
-            Explore Services
-            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-          <div class="absolute inset-0 bg-gradient-to-r from-teal-400/0 to-teal-300/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        </a>
-        <a href="#contact" class="font-body font-400 text-white/60 text-sm tracking-widest uppercase px-8 py-4 rounded-full border border-white/10 hover:border-white/30 hover:text-white/90 transition-all" style="letter-spacing:0.1em;">
-          Contact Us
-        </a>
-      </div>
-
-      <!-- Stats row -->
-      <div class="flex flex-wrap gap-6 mt-14 reveal" style="animation-delay:0.5s;" id="hero-stats">
-        <div class="glass px-6 py-4 rounded-2xl text-center hero-stats">
-          <div class="font-display font-700 text-teal-300 counter-num" style="font-size:36px;" data-target="25">0</div>
-          <div class="font-body text-white/40 text-xs tracking-widest uppercase mt-1" style="letter-spacing:0.15em;">Years exp.</div>
-        </div>
-        <div class="glass px-6 py-4 rounded-2xl text-center hero-stats">
-          <div class="font-display font-700 text-teal-300 counter-num" style="font-size:36px;" data-target="12">0</div>
-          <div class="font-body text-white/40 text-xs tracking-widest uppercase mt-1" style="letter-spacing:0.15em;">Major Clients</div>
-        </div>
-        <div class="glass px-6 py-4 rounded-2xl text-center hero-stats">
-          <div class="font-display font-700 text-teal-300 counter-num" style="font-size:36px;" data-suffix="%">100</div>
-          <div class="font-body text-white/40 text-xs tracking-widest uppercase mt-1" style="letter-spacing:0.15em;">Safety Record</div>
-        </div>
-        <div class="glass px-6 py-4 rounded-2xl text-center hero-stats">
-          <div class="font-display font-700 text-teal-300 counter-num" style="font-size:36px;" data-target="4">0</div>
-          <div class="font-body text-white/40 text-xs tracking-widest uppercase mt-1" style="letter-spacing:0.15em;">Core Services</div>
-        </div>
-      </div>
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Energy &amp; Industrial Development</div>
+    <h1>Empowering <em>Global</em> Energy &amp; Industrial Solutions</h1>
+    <p class="hero-desc">Impactful project development across emerging markets — from power generation and natural gas monetization to agro-processing and industrial infrastructure.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-white">View Projects</a>
+      <a href="#contact" class="btn-ghost">
+        Investor Info
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+      </a>
     </div>
-
-    <!-- Hero right — floating glass card -->
-    <div class="hidden lg:block flex-shrink-0 relative" style="width:340px;">
-      <div class="glass-strong rounded-3xl p-6 animate-float glow-teal relative overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at top right,rgba(0,200,240,0.08),transparent 60%);"></div>
-        <!-- Mini map card -->
-        <div class="glass rounded-2xl p-4 mb-4 relative overflow-hidden" style="aspect-ratio:16/10;background:rgba(14,61,110,0.4);">
-          <svg viewBox="0 0 320 200" class="w-full h-full opacity-60">
-            <!-- Simple Africa outline approximation -->
-            <path d="M120 20 L180 18 L200 40 L210 70 L200 100 L210 130 L200 160 L180 185 L160 190 L140 185 L120 160 L110 130 L105 100 L110 70 L120 40 Z" fill="rgba(0,200,240,0.1)" stroke="rgba(0,200,240,0.4)" stroke-width="1.5"/>
-            <!-- Gulf of Guinea marker -->
-            <circle cx="148" cy="150" r="6" fill="#00c8f0" opacity="0.8" class="animate-pulse"/>
-            <circle cx="148" cy="150" r="14" fill="#00c8f0" opacity="0.2" class="animate-pulse"/>
-            <line x1="148" y1="150" x2="230" y2="100" stroke="rgba(0,200,240,0.4)" stroke-width="1" stroke-dasharray="4,3"/>
-            <rect x="228" y="84" width="80" height="32" rx="4" fill="rgba(0,200,240,0.1)" stroke="rgba(0,200,240,0.3)" stroke-width="0.5"/>
-            <text x="238" y="100" fill="#7de8f8" font-size="8" font-family="Outfit">Gulf of Guinea</text>
-            <text x="238" y="110" fill="rgba(255,255,255,0.5)" font-size="7" font-family="Outfit">Operations Base</text>
-          </svg>
-          <div class="absolute bottom-2 left-2 pill" style="font-size:9px;padding:3px 10px;">Active Region</div>
-        </div>
-
-        <div class="font-display font-600 text-white mb-1" style="font-size:18px;">Gulf of Guinea Basin</div>
-        <div class="font-body text-white/45 text-xs mb-4">West Africa's Premier Energy Region</div>
-
-        <!-- Service chips -->
-        <div class="flex flex-wrap gap-2">
-          <div class="glass rounded-xl px-3 py-2 flex items-center gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-teal-300 animate-pulse"></div>
-            <span class="font-body text-white/60 text-xs">Project Engineering</span>
-          </div>
-          <div class="glass rounded-xl px-3 py-2 flex items-center gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-teal-300 animate-pulse" style="animation-delay:0.5s"></div>
-            <span class="font-body text-white/60 text-xs">Subsea Solutions</span>
-          </div>
-          <div class="glass rounded-xl px-3 py-2 flex items-center gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" style="animation-delay:1s"></div>
-            <span class="font-body text-white/60 text-xs">Asset Integrity</span>
-          </div>
-          <div class="glass rounded-xl px-3 py-2 flex items-center gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-teal-300 animate-pulse" style="animation-delay:1.5s"></div>
-            <span class="font-body text-white/60 text-xs">Port Management</span>
-          </div>
-        </div>
-
-        <!-- HQ badge -->
-        <div class="sep mt-4 mb-3"></div>
-        <div class="flex items-center gap-3">
-          <div class="glass rounded-xl p-2">
-            <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="color:#e2b455;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <div class="font-body text-white/70 text-xs">Headquarters</div>
-            <div class="font-body text-gold-300 text-xs font-500" style="color:#f5d080;">Houston, Texas, USA</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Floating chip -->
-      <div class="glass-teal rounded-2xl px-4 py-3 absolute -left-8 bottom-20 animate-float-slow" style="animation-delay:-2s;">
-        <div class="flex items-center gap-2">
-          <div class="w-2 h-2 rounded-full bg-teal-300 animate-pulse"></div>
-          <span class="font-body text-teal-200 text-xs">Operations: Active</span>
-        </div>
-      </div>
-    </div>
-
   </div>
-
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 animate-bounce">
-    <span class="font-body text-white text-xs tracking-widest uppercase" style="letter-spacing:0.2em;font-size:9px;">Scroll</span>
-    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-num">01 — Power Generation</div>
+      <h3>Thermal &amp; Renewable Energy</h3>
+      <p>Sustainable power generation solutions built for high-growth emerging markets.</p>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-num">02 — Natural Gas</div>
+      <h3>Gas Monetization</h3>
+      <p>Innovative strategies for maximizing natural gas resources and investment returns.</p>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-num">03 — Industrial</div>
+      <h3>Mining, Agriculture &amp; Infrastructure</h3>
+      <p>Transforming industrial sectors across emerging economies worldwide.</p>
+    </div>
   </div>
 </section>
 
-<!-- CLIENTS TICKER -->
-<div class="relative py-5 border-y border-white/5 overflow-hidden">
-  <div class="absolute inset-0" style="background:rgba(0,200,240,0.02);"></div>
-  <div class="flex items-center gap-0 max-w-7xl mx-auto px-6 md:px-10 relative z-10">
-    <span class="font-body text-white/30 text-xs tracking-widest uppercase flex-shrink-0 pr-8 border-r border-white/10 mr-8" style="letter-spacing:0.18em;">Trusted by</span>
-    <div class="flex flex-wrap gap-x-10 gap-y-2 items-center">
-      <span class="font-display font-600 text-white/40 text-base tracking-widest uppercase hover:text-teal-300 transition-colors cursor-default" style="letter-spacing:0.08em;">ExxonMobil</span>
-      <span class="font-display font-600 text-white/40 text-base tracking-widest uppercase hover:text-teal-300 transition-colors cursor-default" style="letter-spacing:0.08em;">Shell</span>
-      <span class="font-display font-600 text-white/40 text-base tracking-widest uppercase hover:text-teal-300 transition-colors cursor-default" style="letter-spacing:0.08em;">TotalEnergies</span>
-      <span class="font-display font-600 text-white/40 text-base tracking-widest uppercase hover:text-teal-300 transition-colors cursor-default" style="letter-spacing:0.08em;">Chevron</span>
-      <span class="font-display font-600 text-white/40 text-base tracking-widest uppercase hover:text-teal-300 transition-colors cursor-default" style="letter-spacing:0.08em;">Agip</span>
-      <span class="font-display font-600 text-white/40 text-base tracking-widest uppercase hover:text-teal-300 transition-colors cursor-default" style="letter-spacing:0.08em;">Mobil</span>
-      <span class="font-display font-600 text-white/40 text-base tracking-widest uppercase hover:text-teal-300 transition-colors cursor-default" style="letter-spacing:0.08em;">Petrolog</span>
-      <span class="font-display font-600 text-white/40 text-base tracking-widest uppercase hover:text-teal-300 transition-colors cursor-default" style="letter-spacing:0.08em;">NNPC</span>
-    </div>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div class="ticker-item">Power Generation <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Natural Gas Monetization <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Agro-Processing <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Industrial Parks <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Emerging Markets <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Economic Development <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Investment Opportunities <span class="ticker-dot"></span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item">Power Generation <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Natural Gas Monetization <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Agro-Processing <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Industrial Parks <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Emerging Markets <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Economic Development <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Investment Opportunities <span class="ticker-dot"></span></div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section id="about" class="relative py-32 px-6 md:px-10">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-20 items-center">
-
-      <!-- Left image zone -->
-      <div class="relative reveal-left">
-        <!-- Main card -->
-        <div class="glass-strong rounded-3xl overflow-hidden relative" style="aspect-ratio:4/5;">
-          <div class="absolute inset-0 grid-bg opacity-30"></div>
-          <!-- Decorative inner -->
-          <div class="absolute inset-0 flex flex-col items-center justify-center p-10">
-            <div class="glass rounded-2xl p-8 w-full mb-6">
-              <svg viewBox="0 0 200 120" class="w-full opacity-50">
-                <!-- Ship silhouette -->
-                <rect x="40" y="70" width="120" height="25" rx="4" fill="rgba(0,200,240,0.2)" stroke="rgba(0,200,240,0.4)" stroke-width="1"/>
-                <path d="M60 70 L60 40 L80 40 L80 70" fill="none" stroke="rgba(0,200,240,0.4)" stroke-width="1"/>
-                <line x1="70" y1="40" x2="70" y2="20" stroke="rgba(0,200,240,0.5)" stroke-width="1"/>
-                <path d="M70 20 L90 30 L70 32" fill="rgba(0,200,240,0.2)"/>
-                <rect x="85" y="55" width="40" height="15" rx="2" fill="rgba(0,200,240,0.15)" stroke="rgba(0,200,240,0.3)" stroke-width="0.5"/>
-                <circle cx="60" cy="95" r="8" fill="none" stroke="rgba(0,200,240,0.3)" stroke-width="1"/>
-                <circle cx="140" cy="95" r="8" fill="none" stroke="rgba(0,200,240,0.3)" stroke-width="1"/>
-                <!-- Waves -->
-                <path d="M20 100 C40 95 60 105 80 100 C100 95 120 105 140 100 C160 95 170 105 185 100" fill="none" stroke="rgba(0,200,240,0.25)" stroke-width="1.5"/>
-                <path d="M10 108 C40 103 70 113 100 108 C130 103 160 113 195 108" fill="none" stroke="rgba(0,200,240,0.15)" stroke-width="1"/>
-              </svg>
-              <p class="font-body text-white/35 text-xs tracking-widest text-center uppercase mt-2" style="letter-spacing:0.16em;">Marine Operations</p>
-            </div>
-
-            <!-- Key facts -->
-            <div class="grid grid-cols-2 gap-3 w-full">
-              <div class="glass rounded-xl p-4 text-center">
-                <div class="font-display font-700 grad-text" style="font-size:28px;">OIMR</div>
-                <div class="font-body text-white/35 text-xs mt-1">Specialists</div>
-              </div>
-              <div class="glass rounded-xl p-4 text-center">
-                <div class="font-display font-700 grad-text" style="font-size:28px;">GOG</div>
-                <div class="font-body text-white/35 text-xs mt-1">Basin Focus</div>
-              </div>
-              <div class="glass rounded-xl p-4 col-span-2 flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:rgba(0,200,240,0.12);">
-                  <svg class="w-4 h-4" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                </div>
-                <div>
-                  <div class="font-body text-white/70 text-xs font-500">Houston, Texas</div>
-                  <div class="font-body text-white/35 text-xs">Global Headquarters</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Top-right accent -->
-          <div class="absolute top-0 right-0 w-32 h-32 pointer-events-none" style="background:radial-gradient(circle at top right,rgba(0,200,240,0.15),transparent 60%);"></div>
-        </div>
-
-        <!-- Floating badge -->
-        <div class="glass-teal rounded-2xl px-5 py-3 absolute -right-4 top-8 animate-float" style="animation-delay:-1s;">
-          <div class="font-display font-700 grad-text-gold" style="font-size:22px;">25+</div>
-          <div class="font-body text-white/50 text-xs">Years Offshore</div>
-        </div>
+<section class="about" id="about">
+  <div class="about-left">
+    <div class="section-label">About ARQ</div>
+    <h2>Built to Drive Growth in Emerging Markets</h2>
+    <p>ARQ Development Corp. LLC specializes in impactful project development in energy and industrial sectors. We identify, structure, and deliver projects that create real economic value where it matters most.</p>
+    <p>Our team brings deep expertise in power generation, natural gas monetization, and agro-industrial development — combining local insight with world-class execution.</p>
+    <div class="mission-block">
+      <h4>Our Mission</h4>
+      <p>To drive sustainable economic development by leveraging synergies between energy and manufacturing sectors, creating viable and scalable investment opportunities across global emerging markets.</p>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-num">3+</div>
+        <div class="about-stat-label">Core service verticals</div>
       </div>
-
-      <!-- Right text -->
-      <div class="reveal-right">
-        <span class="pill mb-5 block" style="width:fit-content;">Who We Are</span>
-        <h2 class="font-display font-700 text-white leading-none mb-6" style="font-size:clamp(40px,5vw,64px);">
-          About Aurora<br>
-          <span class="font-300 italic grad-text">Energy Services</span>
-        </h2>
-        <div class="shimmer-line h-px mb-8"></div>
-        <p class="font-body text-white/50 leading-relaxed mb-6" style="font-weight:300;font-size:15px;">
-          Aurora Energy specializes in delivering OIMR and asset integrity maintenance services across the Gulf of Guinea Basin. Our experienced team ensures the highest standards of quality and safety in all operations — from offshore project planning and execution to subsea inspections and port management.
-        </p>
-        <p class="font-body text-white/50 leading-relaxed mb-10" style="font-weight:300;font-size:15px;">
-          Headquartered in Houston, Texas — the world's energy capital — we combine world-class technical expertise with deep regional knowledge to drive operational excellence for Africa's offshore energy sector.
-        </p>
-
-        <!-- Pillars -->
-        <div class="grid grid-cols-2 gap-3">
-          <div class="glass rounded-2xl p-5 why-card cursor-default">
-            <div class="w-8 h-8 rounded-lg mb-3 flex items-center justify-center" style="background:rgba(0,200,240,0.1);">
-              <svg class="w-4 h-4" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </div>
-            <div class="font-body text-white/80 text-sm font-500 mb-1">Certified Expertise</div>
-            <div class="font-body text-white/35 text-xs leading-relaxed">All personnel proficiency-certified to highest industry standards</div>
-          </div>
-          <div class="glass rounded-2xl p-5 why-card cursor-default">
-            <div class="w-8 h-8 rounded-lg mb-3 flex items-center justify-center" style="background:rgba(0,200,240,0.1);">
-              <svg class="w-4 h-4" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="font-body text-white/80 text-sm font-500 mb-1">Safety First</div>
-            <div class="font-body text-white/35 text-xs leading-relaxed">Full compliance with safety regulations and best practices always</div>
-          </div>
-          <div class="glass rounded-2xl p-5 why-card cursor-default">
-            <div class="w-8 h-8 rounded-lg mb-3 flex items-center justify-center" style="background:rgba(226,180,85,0.1);">
-              <svg class="w-4 h-4" fill="none" stroke="#e2b455" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <div class="font-body text-white/80 text-sm font-500 mb-1">End-to-End</div>
-            <div class="font-body text-white/35 text-xs leading-relaxed">Complete project lifecycle from engineering through port operations</div>
-          </div>
-          <div class="glass rounded-2xl p-5 why-card cursor-default">
-            <div class="w-8 h-8 rounded-lg mb-3 flex items-center justify-center" style="background:rgba(226,180,85,0.1);">
-              <svg class="w-4 h-4" fill="none" stroke="#e2b455" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-            </div>
-            <div class="font-body text-white/80 text-sm font-500 mb-1">Local Impact</div>
-            <div class="font-body text-white/35 text-xs leading-relaxed">Community development, vocational training, malaria eradication</div>
-          </div>
-        </div>
+      <div class="about-stat">
+        <div class="about-stat-num">EM</div>
+        <div class="about-stat-label">Emerging market focus</div>
       </div>
-
+      <div class="about-stat">
+        <div class="about-stat-num">LLC</div>
+        <div class="about-stat-label">US-registered entity</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">∞</div>
+        <div class="about-stat-label">Investment reach</div>
+      </div>
+    </div>
+    <div class="about-img-block">
+      <!-- Industrial illustration -->
+      <svg class="industrial-svg" viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="60" y="180" width="80" height="140" fill="rgba(75,110,142,0.4)"/>
+        <rect x="80" y="160" width="40" height="20" fill="rgba(75,110,142,0.3)"/>
+        <rect x="170" y="140" width="100" height="180" fill="rgba(75,110,142,0.35)"/>
+        <rect x="190" y="110" width="20" height="30" fill="rgba(75,110,142,0.5)"/>
+        <rect x="220" y="100" width="20" height="40" fill="rgba(75,110,142,0.5)"/>
+        <rect x="290" y="200" width="60" height="120" fill="rgba(75,110,142,0.25)"/>
+        <line x1="350" y1="320" x2="350" y2="80" stroke="rgba(75,110,142,0.6)" stroke-width="4"/>
+        <ellipse cx="350" cy="72" rx="20" ry="40" fill="rgba(75,110,142,0.2)" stroke="rgba(75,110,142,0.5)" stroke-width="1"/>
+        <line x1="350" y1="170" x2="330" y2="155" stroke="rgba(75,110,142,0.4)" stroke-width="2"/>
+        <line x1="350" y1="200" x2="370" y2="185" stroke="rgba(75,110,142,0.4)" stroke-width="2"/>
+        <line x1="350" y1="230" x2="330" y2="215" stroke="rgba(75,110,142,0.4)" stroke-width="2"/>
+        <rect x="390" y="220" width="50" height="100" fill="rgba(75,110,142,0.2)"/>
+        <rect x="400" y="180" width="30" height="40" fill="rgba(75,110,142,0.15)"/>
+        <line x1="0" y1="320" x2="500" y2="320" stroke="rgba(75,110,142,0.4)" stroke-width="1"/>
+        <path d="M190 110 Q200 80 210 50 Q215 30 220 10" stroke="rgba(200,220,235,0.2)" stroke-width="6" fill="none"/>
+        <path d="M220 100 Q228 70 235 40" stroke="rgba(200,220,235,0.15)" stroke-width="5" fill="none"/>
+        <rect x="30" y="220" width="20" height="100" fill="rgba(75,110,142,0.15)"/>
+        <rect x="460" y="240" width="20" height="80" fill="rgba(75,110,142,0.15)"/>
+      </svg>
+      <div class="about-img-label">
+        <strong>World-Class Solutions for Growth</strong>
+        Across energy and industrial sectors
+      </div>
     </div>
   </div>
 </section>
-
-<div class="sep max-w-7xl mx-auto px-6 md:px-10"></div>
 
 <!-- SERVICES -->
-<section id="services" class="relative py-32 px-6 md:px-10">
-  <div class="max-w-7xl mx-auto">
-
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-      <div class="reveal">
-        <span class="pill mb-4 block" style="width:fit-content;">What We Do</span>
-        <h2 class="font-display font-700 text-white leading-none" style="font-size:clamp(40px,5.5vw,72px);">
-          Our <span class="italic font-300 grad-text">Services</span>
-        </h2>
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label" style="color: var(--steel-light);">
+        <span style="background: var(--steel-light); display:block; width:24px; height:1px;"></span>
+        What We Do
       </div>
-      <p class="font-body text-white/40 max-w-sm leading-relaxed reveal" style="font-weight:300;font-size:14px;animation-delay:0.1s;">Specializing in energy and industrial project development for emerging markets across Africa's offshore basin.</p>
+      <h2>Our Core Services</h2>
     </div>
-
-    <div class="grid md:grid-cols-2 gap-4">
-
-      <!-- Card 1 -->
-      <div class="service-card glass rounded-3xl p-8 relative overflow-hidden cursor-default reveal" style="animation-delay:0s;">
-        <div class="absolute top-0 right-0 w-48 h-48 pointer-events-none" style="background:radial-gradient(circle at top right,rgba(0,200,240,0.06),transparent 60%);"></div>
-        <div class="absolute top-6 right-6 font-display font-700 text-white/4 pointer-events-none" style="font-size:80px;line-height:1;letter-spacing:-0.05em;">01</div>
-        <div class="card-icon w-12 h-12 rounded-xl mb-6 flex items-center justify-center transition-all" style="background:rgba(0,200,240,0.08);border:1px solid rgba(0,200,240,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-3" style="font-size:24px;">Engineering &amp; Project Management</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed mb-6" style="font-weight:300;">Comprehensive onshore and offshore engineering services covering every phase of the project lifecycle.</p>
-        <ul class="space-y-2.5">
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-teal-400 mt-2 flex-shrink-0"></div>Project planning, execution &amp; installation</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-teal-400 mt-2 flex-shrink-0"></div>Completions, commissioning &amp; startup</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-teal-400 mt-2 flex-shrink-0"></div>Plug and abandonment / decommissioning</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-teal-400 mt-2 flex-shrink-0"></div>Skilled manpower supply &amp; management</li>
-        </ul>
-        <div class="sep mt-6 mb-0"></div>
+    <p>Specializing in energy and industrial project development for emerging markets worldwide.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-item">
+      <div class="svc-num">01</div>
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 32 32"><path d="M16 4v4M16 24v4M4 16H8M24 16h4M8.9 8.9l2.8 2.8M20.3 20.3l2.8 2.8M8.9 23.1l2.8-2.8M20.3 11.7l2.8-2.8"/><circle cx="16" cy="16" r="5"/></svg>
       </div>
-
-      <!-- Card 2 -->
-      <div class="service-card glass rounded-3xl p-8 relative overflow-hidden cursor-default reveal" style="animation-delay:0.1s;">
-        <div class="absolute top-0 right-0 w-48 h-48 pointer-events-none" style="background:radial-gradient(circle at top right,rgba(0,200,240,0.06),transparent 60%);"></div>
-        <div class="absolute top-6 right-6 font-display font-700 text-white/4 pointer-events-none" style="font-size:80px;line-height:1;letter-spacing:-0.05em;">02</div>
-        <div class="card-icon w-12 h-12 rounded-xl mb-6 flex items-center justify-center transition-all" style="background:rgba(0,200,240,0.08);border:1px solid rgba(0,200,240,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-3" style="font-size:24px;">Marine &amp; Subsea Solutions</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed mb-6" style="font-weight:300;">Advanced ROV services and diving expertise for precise underwater inspections and interventions in challenging environments.</p>
-        <ul class="space-y-2.5">
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-teal-400 mt-2 flex-shrink-0"></div>Advanced ROV inspections &amp; interventions</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-teal-400 mt-2 flex-shrink-0"></div>Air and saturation diving operations</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-teal-400 mt-2 flex-shrink-0"></div>Subsea infrastructure maintenance</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-teal-400 mt-2 flex-shrink-0"></div>Pipeline and platform inspection</li>
-        </ul>
-        <div class="sep mt-6 mb-0"></div>
+      <h3>Power Generation</h3>
+      <p>Thermal and renewable energy solutions for sustainable, scalable power generation in high-growth regions. From project conception to financial close.</p>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">02</div>
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 32 32"><path d="M8 28V16a8 8 0 0116 0v12M12 28V20M20 28V20M16 4v4M16 8a4 4 0 010 8"/></svg>
       </div>
-
-      <!-- Card 3 -->
-      <div class="service-card glass rounded-3xl p-8 relative overflow-hidden cursor-default reveal" style="animation-delay:0.2s;">
-        <div class="absolute top-0 right-0 w-48 h-48 pointer-events-none" style="background:radial-gradient(circle at top right,rgba(226,180,85,0.05),transparent 60%);"></div>
-        <div class="absolute top-6 right-6 font-display font-700 text-white/4 pointer-events-none" style="font-size:80px;line-height:1;letter-spacing:-0.05em;">03</div>
-        <div class="card-icon w-12 h-12 rounded-xl mb-6 flex items-center justify-center transition-all" style="background:rgba(226,180,85,0.08);border:1px solid rgba(226,180,85,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#e2b455" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-3" style="font-size:24px;">Asset Integrity &amp; Risk Management</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed mb-6" style="font-weight:300;">Specialized subsea construction and maintenance delivered by highly skilled, proficiency-certified personnel.</p>
-        <ul class="space-y-2.5">
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>Structure repair, monitoring &amp; CP/CD surveys</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>FPSO hull &amp; turret inspections</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>Leak investigation &amp; remediation</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>Flooded member detection surveys</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>Anchor chain inspection &amp; measurement</li>
-        </ul>
-        <div class="sep mt-6 mb-0"></div>
+      <h3>Natural Gas Monetization</h3>
+      <p>Innovative strategies for maximizing natural gas resources and investments. Converting stranded assets into productive, revenue-generating infrastructure.</p>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">03</div>
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 32 32"><rect x="4" y="18" width="24" height="10" rx="1"/><path d="M10 18V12M22 18V12M7 12h18M12 12V8M20 12V8M9 8h14"/></svg>
       </div>
-
-      <!-- Card 4 -->
-      <div class="service-card glass rounded-3xl p-8 relative overflow-hidden cursor-default reveal" style="animation-delay:0.3s;">
-        <div class="absolute top-0 right-0 w-48 h-48 pointer-events-none" style="background:radial-gradient(circle at top right,rgba(226,180,85,0.05),transparent 60%);"></div>
-        <div class="absolute top-6 right-6 font-display font-700 text-white/4 pointer-events-none" style="font-size:80px;line-height:1;letter-spacing:-0.05em;">04</div>
-        <div class="card-icon w-12 h-12 rounded-xl mb-6 flex items-center justify-center transition-all" style="background:rgba(226,180,85,0.08);border:1px solid rgba(226,180,85,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#e2b455" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-3" style="font-size:24px;">Port Management Services</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed mb-6" style="font-weight:300;">Ensuring safe and efficient maritime operations with full compliance with all safety regulations and best practices.</p>
-        <ul class="space-y-2.5">
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>Vessel Traffic Services (VTS)</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>Piloting with Tugs and AHTS vessels</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>Buoy &amp; navigational system installation</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>Bathymetric surveys &amp; dredging</li>
-          <li class="flex items-start gap-3 font-body text-white/50 text-sm"><div class="w-1 h-1 rounded-full bg-gold-400 mt-2 flex-shrink-0" style="background:#e2b455;"></div>Marine safety solutions</li>
-        </ul>
-        <div class="sep mt-6 mb-0"></div>
+      <h3>Mining &amp; Agriculture</h3>
+      <p>Transforming mining, agriculture, and agro-processing sectors. Creating integrated industrial value chains tailored to each emerging market.</p>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">04</div>
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 32 32"><rect x="4" y="14" width="24" height="14" rx="1"/><path d="M10 14V10a6 6 0 0112 0v4"/><path d="M16 19v4"/></svg>
       </div>
-
+      <h3>Industrial Parks</h3>
+      <p>Development of world-class industrial park infrastructure that attracts investment and catalyzes manufacturing-led economic growth.</p>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">05</div>
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M16 4a12 12 0 010 24M4 16h24M16 4c-3 4-5 8-5 12s2 8 5 12M16 4c3 4 5 8 5 12s-2 8-5 12"/></svg>
+      </div>
+      <h3>Emerging Markets Advisory</h3>
+      <p>On-the-ground expertise and strategic guidance for investors seeking to navigate and capitalize on emerging market opportunities.</p>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">06</div>
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 32 32"><path d="M4 26l7-7 4 4 9-12M16 6h10v10"/></svg>
+      </div>
+      <h3>Investment Structuring</h3>
+      <p>Financial structuring and deal origination connecting capital with high-impact energy and industrial projects in growth markets.</p>
     </div>
   </div>
 </section>
 
-<!-- WHY AURORA BANNER -->
-<section id="why" class="relative py-32 px-6 md:px-10 overflow-hidden">
-  <!-- BG accent -->
-  <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 50% 50%,rgba(0,200,240,0.06) 0%,transparent 70%);"></div>
-
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16 reveal">
-      <span class="pill mb-5 block mx-auto" style="width:fit-content;">Why Aurora</span>
-      <h2 class="font-display font-700 text-white leading-none" style="font-size:clamp(40px,5.5vw,72px);">
-        Our Commitment to<br>
-        <span class="italic font-300 grad-text">Quality &amp; Safety</span>
-      </h2>
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="projects-header">
+    <div class="section-label">Featured Projects</div>
+    <h2>Driving Impact Across Sectors</h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-main">
+      <div class="project-main-content">
+        <span class="project-tag">Power Generation</span>
+        <h3>Emerging Market Power Infrastructure</h3>
+        <p>Large-scale power generation projects delivering reliable electricity access and enabling industrial growth across underserved emerging markets.</p>
+      </div>
     </div>
-
-    <div class="grid md:grid-cols-3 gap-4">
-      <div class="why-card glass rounded-3xl p-7 cursor-default reveal" style="animation-delay:0s;">
-        <div class="w-12 h-12 rounded-xl mb-5 flex items-center justify-center" style="background:rgba(0,200,240,0.08);border:1px solid rgba(0,200,240,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-2" style="font-size:20px;">Certified Expertise</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed" style="font-weight:300;">All personnel are proficiency-certified and trained to the highest industry standards, bringing decades of combined offshore expertise.</p>
+    <div class="projects-side">
+      <div class="project-card">
+        <div class="project-card-tag">Natural Gas</div>
+        <h4>Gas Monetization &amp; LNG</h4>
+        <p>Converting stranded gas assets into productive infrastructure, creating new economic value and export opportunities.</p>
       </div>
-      <div class="why-card glass rounded-3xl p-7 cursor-default reveal" style="animation-delay:0.1s;">
-        <div class="w-12 h-12 rounded-xl mb-5 flex items-center justify-center" style="background:rgba(0,200,240,0.08);border:1px solid rgba(0,200,240,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-2" style="font-size:20px;">Safety First</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed" style="font-weight:300;">Every operation conducted in full compliance with safety regulations and best practices. Zero compromise on personnel and environmental safety.</p>
-      </div>
-      <div class="why-card glass rounded-3xl p-7 cursor-default reveal" style="animation-delay:0.2s;">
-        <div class="w-12 h-12 rounded-xl mb-5 flex items-center justify-center" style="background:rgba(0,200,240,0.08);border:1px solid rgba(0,200,240,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-2" style="font-size:20px;">End-to-End Capability</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed" style="font-weight:300;">From engineering and project management to subsea construction and port operations — complete integrated marine services from one partner.</p>
-      </div>
-      <div class="why-card glass rounded-3xl p-7 cursor-default reveal" style="animation-delay:0.3s;">
-        <div class="w-12 h-12 rounded-xl mb-5 flex items-center justify-center" style="background:rgba(226,180,85,0.08);border:1px solid rgba(226,180,85,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#e2b455" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-2" style="font-size:20px;">Regional Expertise</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed" style="font-weight:300;">Deep knowledge of the Gulf of Guinea Basin and African regulatory environment. We understand the local operating landscape intimately.</p>
-      </div>
-      <div class="why-card glass rounded-3xl p-7 cursor-default reveal" style="animation-delay:0.4s;">
-        <div class="w-12 h-12 rounded-xl mb-5 flex items-center justify-center" style="background:rgba(226,180,85,0.08);border:1px solid rgba(226,180,85,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#e2b455" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-2" style="font-size:20px;">Proven Performance</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed" style="font-weight:300;">Trusted by ExxonMobil, Shell, TotalEnergies, Chevron, Agip and more. Our track record of consistent delivery speaks for itself.</p>
-      </div>
-      <div class="why-card glass rounded-3xl p-7 cursor-default reveal" style="animation-delay:0.5s;">
-        <div class="w-12 h-12 rounded-xl mb-5 flex items-center justify-center" style="background:rgba(226,180,85,0.08);border:1px solid rgba(226,180,85,0.12);">
-          <svg class="w-6 h-6" fill="none" stroke="#e2b455" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <h3 class="font-display font-700 text-white mb-2" style="font-size:20px;">Local Impact</h3>
-        <p class="font-body text-white/40 text-sm leading-relaxed" style="font-weight:300;">Committed to community development through vocational training, malaria eradication, and strategic local partnerships across West Africa.</p>
+      <div class="project-card">
+        <div class="project-card-tag">Agro-Processing</div>
+        <h4>Agricultural Value Chain Development</h4>
+        <p>Integrated agro-industrial facilities that reduce post-harvest losses and increase farmers' income across the region.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CSR -->
-<section class="relative py-24 px-6 md:px-10">
-  <div class="max-w-7xl mx-auto">
-    <div class="glass-strong rounded-3xl p-10 md:p-14 relative overflow-hidden">
-      <div class="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
-      <div class="absolute top-0 right-0 w-64 h-64 pointer-events-none" style="background:radial-gradient(circle,rgba(0,200,240,0.06),transparent 60%);"></div>
-
-      <div class="relative z-10">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-          <div class="reveal">
-            <span class="pill mb-4 block" style="width:fit-content;">Corporate Responsibility</span>
-            <h2 class="font-display font-700 text-white leading-none" style="font-size:clamp(32px,4vw,52px);">CSR <span class="italic font-300 grad-text">Commitments</span></h2>
-          </div>
-        </div>
-        <div class="grid md:grid-cols-3 gap-5">
-          <div class="glass rounded-2xl p-6 why-card cursor-default reveal" style="animation-delay:0.1s;">
-            <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center" style="background:rgba(0,200,240,0.08);border:1px solid rgba(0,200,240,0.12);">
-              <svg class="w-5 h-5" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
-            <h3 class="font-display font-700 text-white mb-2" style="font-size:18px;">Vocational Training</h3>
-            <p class="font-body text-white/40 text-sm leading-relaxed" style="font-weight:300;">Empowering local communities with technical skills for the energy sector, building Nigeria's next generation of offshore professionals.</p>
-          </div>
-          <div class="glass rounded-2xl p-6 why-card cursor-default reveal" style="animation-delay:0.2s;">
-            <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center" style="background:rgba(0,200,240,0.08);border:1px solid rgba(0,200,240,0.12);">
-              <svg class="w-5 h-5" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <h3 class="font-display font-700 text-white mb-2" style="font-size:18px;">Malaria Eradication</h3>
-            <p class="font-body text-white/40 text-sm leading-relaxed" style="font-weight:300;">Supporting health programs to combat malaria in our operating communities across West Africa's coastal regions.</p>
-          </div>
-          <div class="glass rounded-2xl p-6 why-card cursor-default reveal" style="animation-delay:0.3s;">
-            <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center" style="background:rgba(226,180,85,0.08);border:1px solid rgba(226,180,85,0.12);">
-              <svg class="w-5 h-5" fill="none" stroke="#e2b455" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-            </div>
-            <h3 class="font-display font-700 text-white mb-2" style="font-size:18px;">Donations &amp; Sponsorships</h3>
-            <p class="font-body text-white/40 text-sm leading-relaxed" style="font-weight:300;">Investing in community development through targeted giving and strategic partnerships with local organizations across the region.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- CTA BANNER -->
+<div class="cta">
+  <h2>Join Our Energy and Industrial Revolution</h2>
+  <div class="cta-actions">
+    <a href="#contact" class="btn-navy">Contact Us</a>
+    <a href="#about" class="btn-light-ghost">Learn More</a>
   </div>
-</section>
-
-<!-- CLIENTS -->
-<section id="clients" class="relative py-32 px-6 md:px-10">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-14 reveal">
-      <span class="pill mb-5 block mx-auto" style="width:fit-content;">Our Clients</span>
-      <h2 class="font-display font-700 text-white leading-none" style="font-size:clamp(40px,5.5vw,72px);">
-        Trusted by <span class="italic font-300 grad-text">Industry Leaders</span>
-      </h2>
-      <p class="font-body text-white/40 mt-4 max-w-md mx-auto" style="font-weight:300;font-size:14px;">Proud to serve some of the most respected names in the oil, gas, and energy sectors.</p>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 reveal">
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">NNPC</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">NPDC</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">Mobil</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">TotalEnergies</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">Chevron</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">Agip</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">Shell</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">Petrolog</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">ExxonMobil</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">PMNL</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">PPSL</span></div>
-      <div class="client-pill glass rounded-2xl px-6 py-5 text-center cursor-default border border-white/5"><span class="font-display font-700 text-white/50 tracking-widest uppercase text-sm">OIS</span></div>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- CONTACT -->
-<section id="contact" class="relative py-32 px-6 md:px-10">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-14 reveal">
-      <span class="pill mb-5 block mx-auto" style="width:fit-content;">Get In Touch</span>
-      <h2 class="font-display font-700 text-white leading-none" style="font-size:clamp(40px,5.5vw,72px);">
-        Let's <span class="italic font-300 grad-text">Work Together</span>
-      </h2>
-      <p class="font-body text-white/40 mt-4 max-w-md mx-auto" style="font-weight:300;font-size:14px;">Reach out to discuss how Aurora Energy can support your next offshore project in the Gulf of Guinea Basin.</p>
+<section class="contact" id="contact">
+  <div class="contact-info-col">
+    <div class="section-label" style="color: var(--steel-light);">
+      <span style="background: var(--steel-light); display:block; width:24px; height:1px;"></span>
+      Get In Touch
     </div>
-
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-
-      <!-- Info panel -->
-      <div class="reveal-left">
-        <div class="glass-strong rounded-3xl p-8 mb-6 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-48 h-48 pointer-events-none" style="background:radial-gradient(circle at top right,rgba(0,200,240,0.08),transparent 60%);"></div>
-          <h3 class="font-display font-700 text-white mb-6" style="font-size:22px;">Contact Information</h3>
-
-          <div class="space-y-5">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center glass-teal">
-                <svg class="w-5 h-5" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <div class="font-body text-white/35 text-xs tracking-widest uppercase mb-1" style="letter-spacing:0.14em;">Email</div>
-                <a href="mailto:info@aurora-es.com" class="font-body text-teal-300 hover:text-teal-200 transition-colors text-sm">info@aurora-es.com</a>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center glass-teal">
-                <svg class="w-5 h-5" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <div class="font-body text-white/35 text-xs tracking-widest uppercase mb-1" style="letter-spacing:0.14em;">Headquarters</div>
-                <div class="font-body text-white/70 text-sm">Houston, Texas, USA</div>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center glass-teal">
-                <svg class="w-5 h-5" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-              </div>
-              <div>
-                <div class="font-body text-white/35 text-xs tracking-widest uppercase mb-1" style="letter-spacing:0.14em;">Operating Region</div>
-                <div class="font-body text-white/70 text-sm">Gulf of Guinea Basin, West Africa</div>
-              </div>
-            </div>
-          </div>
+    <h2>Let's Discuss Project Opportunities</h2>
+    <p>Whether you're an investor, partner, or project developer — we'd love to hear from you about impactful opportunities in energy and industrial sectors.</p>
+    <div class="contact-detail">
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 16 16"><path d="M13 2H3a1 1 0 00-1 1v8a1 1 0 001 1h2l3 2 3-2h2a1 1 0 001-1V3a1 1 0 00-1-1z"/></svg>
         </div>
-
-        <!-- Services list -->
-        <div class="glass rounded-3xl p-8">
-          <div class="font-body text-white/35 text-xs tracking-widest uppercase mb-5" style="letter-spacing:0.18em;">Our Services</div>
-          <ul class="space-y-3">
-            <li class="flex items-center gap-3 font-body text-white/55 text-sm group cursor-default">
-              <div class="w-1 h-1 rounded-full flex-shrink-0" style="background:#00c8f0;"></div>
-              Engineering &amp; Project Management
-            </li>
-            <li class="flex items-center gap-3 font-body text-white/55 text-sm group cursor-default">
-              <div class="w-1 h-1 rounded-full flex-shrink-0" style="background:#00c8f0;"></div>
-              Marine &amp; Subsea Solutions
-            </li>
-            <li class="flex items-center gap-3 font-body text-white/55 text-sm group cursor-default">
-              <div class="w-1 h-1 rounded-full flex-shrink-0" style="background:#e2b455;"></div>
-              Assets Integrity &amp; Risk Management
-            </li>
-            <li class="flex items-center gap-3 font-body text-white/55 text-sm group cursor-default">
-              <div class="w-1 h-1 rounded-full flex-shrink-0" style="background:#00c8f0;"></div>
-              Subsea Construction &amp; Maintenance
-            </li>
-            <li class="flex items-center gap-3 font-body text-white/55 text-sm group cursor-default">
-              <div class="w-1 h-1 rounded-full flex-shrink-0" style="background:#e2b455;"></div>
-              Port Management Services
-            </li>
-          </ul>
+        <div>
+          <div class="contact-row-label">Phone</div>
+          <div class="contact-row-val">+1-713-587-6550</div>
         </div>
       </div>
-
-      <!-- Form -->
-      <div class="glass-strong rounded-3xl p-8 md:p-10 relative overflow-hidden reveal-right">
-        <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at top right,rgba(0,200,240,0.05),transparent 60%);"></div>
-        <h3 class="font-display font-700 text-white mb-7 relative z-10" style="font-size:24px;">Send a Message</h3>
-
-        <form id="contact-form" class="space-y-5 relative z-10" onsubmit="submitForm(event)">
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="font-body text-white/35 text-xs tracking-widest uppercase block mb-2" style="letter-spacing:0.14em;">First Name</label>
-              <input type="text" placeholder="John" required class="w-full glass rounded-xl px-4 py-3 font-body text-white text-sm placeholder-white/20 border-0 focus:ring-1 focus:ring-teal-400/40 transition-all" style="background:rgba(255,255,255,0.05);">
-            </div>
-            <div>
-              <label class="font-body text-white/35 text-xs tracking-widest uppercase block mb-2" style="letter-spacing:0.14em;">Last Name</label>
-              <input type="text" placeholder="Smith" class="w-full glass rounded-xl px-4 py-3 font-body text-white text-sm placeholder-white/20 border-0 focus:ring-1 focus:ring-teal-400/40 transition-all" style="background:rgba(255,255,255,0.05);">
-            </div>
-          </div>
-          <div>
-            <label class="font-body text-white/35 text-xs tracking-widest uppercase block mb-2" style="letter-spacing:0.14em;">Email Address</label>
-            <input type="email" placeholder="john@company.com" required class="w-full glass rounded-xl px-4 py-3 font-body text-white text-sm placeholder-white/20 border-0 focus:ring-1 focus:ring-teal-400/40 transition-all" style="background:rgba(255,255,255,0.05);">
-          </div>
-          <div>
-            <label class="font-body text-white/35 text-xs tracking-widest uppercase block mb-2" style="letter-spacing:0.14em;">Company</label>
-            <input type="text" placeholder="Your company name" class="w-full glass rounded-xl px-4 py-3 font-body text-white text-sm placeholder-white/20 border-0 focus:ring-1 focus:ring-teal-400/40 transition-all" style="background:rgba(255,255,255,0.05);">
-          </div>
-          <div>
-            <label class="font-body text-white/35 text-xs tracking-widest uppercase block mb-2" style="letter-spacing:0.14em;">Service of Interest</label>
-            <select class="w-full glass rounded-xl px-4 py-3 font-body text-white/70 text-sm border-0 focus:ring-1 focus:ring-teal-400/40 transition-all cursor-pointer" style="background:rgba(255,255,255,0.05);">
-              <option value="" style="background:#0a1628;">Select a service...</option>
-              <option style="background:#0a1628;">Engineering &amp; Project Management</option>
-              <option style="background:#0a1628;">Marine &amp; Subsea Solutions</option>
-              <option style="background:#0a1628;">Asset Integrity &amp; Risk Management</option>
-              <option style="background:#0a1628;">Subsea Construction &amp; Maintenance</option>
-              <option style="background:#0a1628;">Port Management Services</option>
-              <option style="background:#0a1628;">General Inquiry</option>
-            </select>
-          </div>
-          <div>
-            <label class="font-body text-white/35 text-xs tracking-widest uppercase block mb-2" style="letter-spacing:0.14em;">Message</label>
-            <textarea placeholder="Tell us about your project..." rows="4" required class="w-full glass rounded-xl px-4 py-3 font-body text-white text-sm placeholder-white/20 border-0 focus:ring-1 focus:ring-teal-400/40 transition-all resize-none" style="background:rgba(255,255,255,0.05);"></textarea>
-          </div>
-          <button type="submit" class="w-full glass-teal rounded-xl py-4 font-body font-500 text-teal-300 text-sm tracking-widest uppercase transition-all hover:bg-teal-400/15 hover:text-white flex items-center justify-center gap-2 group" style="letter-spacing:0.12em;">
-            <span>Send Message</span>
-            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </form>
-
-        <div id="form-success" class="hidden relative z-10 py-12 text-center">
-          <div class="w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center" style="background:rgba(0,200,240,0.12);border:1px solid rgba(0,200,240,0.2);">
-            <svg class="w-8 h-8" fill="none" stroke="#00c8f0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h4 class="font-display font-700 text-white mb-2" style="font-size:22px;">Message Sent</h4>
-          <p class="font-body text-white/40 text-sm" style="font-weight:300;">Thank you for reaching out. We'll be in touch shortly.</p>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 16 16"><path d="M2 4h12v8H2zM2 4l6 5 6-5"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-label">Email</div>
+          <div class="contact-row-val">info@arqdevelopment.com</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 2a6 6 0 010 12M2 8h12M8 2c-1.5 2-2.5 4-2.5 6s1 4 2.5 6M8 2c1.5 2 2.5 4 2.5 6s-1 4-2.5 6"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-label">Website</div>
+          <div class="contact-row-val">arqdevelopment.com</div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="contact-form-col">
+    <h3>Send Us a Message</h3>
+    <form onsubmit="event.preventDefault(); this.innerHTML='<p style=\'color:rgba(255,255,255,0.6);font-size:14px;padding:20px 0;\'>Thank you for reaching out. We\'ll be in touch soon.</p>'">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="john@company.com" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us about the project or opportunity..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit Inquiry</button>
+    </form>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="relative border-t border-white/5 pt-16 pb-8 px-6 md:px-10">
-  <div class="absolute inset-0 pointer-events-none" style="background:rgba(3,8,15,0.5);"></div>
-  <div class="max-w-7xl mx-auto relative z-10">
-    <div class="grid md:grid-cols-4 gap-10 pb-12 border-b border-white/5 mb-8">
-      <!-- Brand -->
-      <div class="md:col-span-1">
-        <a href="#home" class="flex items-center gap-3 mb-4">
-          <div class="w-9 h-9 flex-shrink-0">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-              <defs><linearGradient id="lg2" x1="0" y1="40" x2="40" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#007a99"/><stop offset="100%" stop-color="#00c8f0"/></linearGradient></defs>
-              <path d="M20 4 L36 32 L4 32 Z" fill="none" stroke="url(#lg2)" stroke-width="1.5"/>
-              <path d="M20 12 L30 32 L10 32 Z" fill="url(#lg2)" opacity="0.3"/>
-              <path d="M20 18 L26 32 L14 32 Z" fill="url(#lg2)" opacity="0.6"/>
-              <circle cx="20" cy="7" r="2.5" fill="#e2b455"/>
-            </svg>
-          </div>
-          <div>
-            <div class="font-display font-600 text-white" style="font-size:15px;letter-spacing:0.05em;">AURORA ENERGY</div>
-            <div class="font-body text-teal-300/60" style="font-size:8.5px;letter-spacing:0.2em;text-transform:uppercase;font-weight:300;">Offshore &amp; Marine Services</div>
-          </div>
-        </a>
-        <p class="font-body text-white/30 text-xs leading-relaxed mb-5" style="font-weight:300;">Delivering precision, safety, and integrity across every marine and subsea operation in West Africa.</p>
-        <div class="flex items-start gap-2">
-          <svg class="w-3.5 h-3.5 flex-shrink-0 mt-0.5" fill="none" stroke="#e2b455" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span class="font-body text-white/30 text-xs leading-relaxed" style="font-weight:300;">Houston, Texas, USA<br>Gulf of Guinea Basin, West Africa</span>
-        </div>
-      </div>
-
-      <!-- Services -->
-      <div>
-        <div class="font-body text-white/25 text-xs tracking-widest uppercase mb-5" style="letter-spacing:0.2em;">Services</div>
-        <ul class="space-y-3">
-          <li><a href="#services" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">Engineering &amp; PM</a></li>
-          <li><a href="#services" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">Marine &amp; Subsea</a></li>
-          <li><a href="#services" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">Asset Integrity</a></li>
-          <li><a href="#services" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">Subsea Construction</a></li>
-          <li><a href="#services" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">Port Management</a></li>
-        </ul>
-      </div>
-
-      <!-- Company -->
-      <div>
-        <div class="font-body text-white/25 text-xs tracking-widest uppercase mb-5" style="letter-spacing:0.2em;">Company</div>
-        <ul class="space-y-3">
-          <li><a href="#about" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">About Us</a></li>
-          <li><a href="#why" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">Why Aurora</a></li>
-          <li><a href="#clients" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">Our Clients</a></li>
-          <li><a href="#contact" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <div class="font-body text-white/25 text-xs tracking-widest uppercase mb-5" style="letter-spacing:0.2em;">Contact</div>
-        <ul class="space-y-3">
-          <li><a href="mailto:info@aurora-es.com" class="font-body text-white/45 text-xs hover:text-teal-300 transition-colors" style="font-weight:300;">info@aurora-es.com</a></li>
-          <li><span class="font-body text-white/45 text-xs" style="font-weight:300;">Houston, TX USA</span></li>
-          <li><span class="font-body text-white/45 text-xs" style="font-weight:300;">West Africa Operations</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="font-body text-white/20 text-xs" style="font-weight:300;">© 2026 Aurora Energy Services. All Rights Reserved.</p>
-      <div class="flex gap-6">
-        <a href="#" class="font-body text-white/20 text-xs hover:text-white/50 transition-colors" style="font-weight:300;">Privacy Policy</a>
-        <a href="#" class="font-body text-white/20 text-xs hover:text-white/50 transition-colors" style="font-weight:300;">Terms of Service</a>
-      </div>
-    </div>
+<footer>
+  <div class="footer-logo">ARQ Development Corp.</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
+  <div class="footer-copy">© 2025 ARQ Development Corp. LLC. All rights reserved.</div>
 </footer>
 
-<script>
-// PARTICLES
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
-let W, H, particles = [];
-
-function resize() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener('resize', resize);
-
-for (let i = 0; i < 60; i++) {
-  particles.push({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    r: Math.random() * 1.5 + 0.3,
-    dx: (Math.random() - 0.5) * 0.3,
-    dy: (Math.random() - 0.5) * 0.3,
-    o: Math.random() * 0.5 + 0.1,
-    color: Math.random() > 0.7 ? '#e2b455' : '#00c8f0'
-  });
-}
-
-function animateParticles() {
-  ctx.clearRect(0, 0, W, H);
-  particles.forEach(p => {
-    p.x += p.dx; p.y += p.dy;
-    if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-    if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = p.color;
-    ctx.globalAlpha = p.o;
-    ctx.fill();
-    ctx.globalAlpha = 1;
-  });
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
-
-// NAV scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-});
-
-// Mobile burger
-const burger = document.getElementById('burger');
-const navMenu = document.getElementById('nav-menu');
-const b1 = document.getElementById('b1'), b2 = document.getElementById('b2'), b3 = document.getElementById('b3');
-let open = false;
-burger.addEventListener('click', () => {
-  open = !open;
-  navMenu.style.maxHeight = open ? '300px' : '0px';
-  b1.style.transform = open ? 'rotate(45deg) translate(4px,4px)' : '';
-  b2.style.opacity = open ? '0' : '1';
-  b3.style.transform = open ? 'rotate(-45deg) translate(4px,-4px)' : '';
-  b3.style.width = open ? '24px' : '16px';
-});
-document.querySelectorAll('.nav-m-link').forEach(l => l.addEventListener('click', () => {
-  open = false;
-  navMenu.style.maxHeight = '0px';
-  b1.style.transform = b3.style.transform = '';
-  b2.style.opacity = '1';
-  b3.style.width = '16px';
-}));
-
-// SCROLL REVEAL
-const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-const revObs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      const delay = parseFloat(e.target.style.animationDelay || '0') * 1000;
-      setTimeout(() => e.target.classList.add('visible'), delay);
-      revObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin:'0px 0px -40px 0px' });
-revealEls.forEach(el => revObs.observe(el));
-
-// COUNTER ANIMATION
-function animateCounter(el, target, suffix='') {
-  let start = 0;
-  const duration = 1800;
-  const step = timestamp => {
-    if (!start) start = timestamp;
-    const progress = Math.min((timestamp - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(eased * target) + suffix;
-    if (progress < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
-const statEls = document.querySelectorAll('[data-target]');
-const statObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const t = parseInt(e.target.dataset.target);
-      const suf = e.target.dataset.suffix || '+';
-      animateCounter(e.target, t, suf);
-      statObs.unobserve(e.target);
-    }
-  });
-}, {threshold:0.5});
-statEls.forEach(el => statObs.observe(el));
-
-// CONTACT FORM
-function submitForm(e) {
-  e.preventDefault();
-  document.getElementById('contact-form').style.display = 'none';
-  document.getElementById('form-success').classList.remove('hidden');
-}
-
-// Smooth scroll all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
-  });
-});
-</script>
 </body>
 </html>
